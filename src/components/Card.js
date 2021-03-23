@@ -12,7 +12,7 @@ const Card = ({
   expiry = "02/22",
   link,
 }) => {
-  const handleColorType = () => {
+  const cardTypeHandle = () => {
     const firstCardNumber = cardNumber.slice(0, 1);
     switch (firstCardNumber) {
       case "5":
@@ -27,7 +27,7 @@ const Card = ({
     <div className="card__container">
       {link ? (
         <Link to={`/cards/${id}/edit`}>
-          <div className={`card ${handleColorType()}`}>
+          <div className={`card ${cardTypeHandle()}`}>
             <div className="card__logo">
               <img className="logo logo--visa" src={Visa} alt="logo" />
               <img
@@ -46,7 +46,7 @@ const Card = ({
           </div>
         </Link>
       ) : (
-        <div className={`card ${handleColorType()}`}>
+        <div className={`card ${cardTypeHandle()}`}>
           <div className="card__logo">
             <img className="logo logo--visa" src={Visa} alt="logo" />
             <img

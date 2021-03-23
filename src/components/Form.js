@@ -21,7 +21,7 @@ const Form = ({
       <input
         className="name"
         name="name"
-        placeholder={name}
+        value={name}
         onChange={(event) => setName(event.target.value)}
       />
       <p>Card Number</p>
@@ -29,35 +29,39 @@ const Form = ({
         <input
           name="number"
           maxLength="4"
-          placeholder={cardNumber1}
+          value={cardNumber1}
           onChange={(event) => setCardNumber1(event.target.value)}
         />
         <input
           name="number"
           maxLength="4"
-          placeholder={cardNumber2}
+          value={cardNumber2}
           onChange={(event) => setCardNumber2(event.target.value)}
         />
         <input
           name="number"
           maxLength="4"
-          placeholder={cardNumber3}
+          value={cardNumber3}
           onChange={(event) => setCardNumber3(event.target.value)}
         />
         <input
           name="number"
           maxLength="4"
-          placeholder={cardNumber4}
+          value={cardNumber4}
           onChange={(event) => setCardNumber4(event.target.value)}
         />
       </div>
       <p>Expires on</p>
       <input
         name="expiry"
-        placeholder={expiry}
+        value={expiry}
         onChange={(event) => setExpiry(event.target.value)}
       />
-      <input className="form__submit" type="submit" onClick={addCardToLS} />
+      <input
+        className="form__submit"
+        type="submit"
+        onClick={() => addCardToLS()}
+      />
     </form>
   );
 };
