@@ -8,7 +8,7 @@ import { useState } from "react";
 const EditPage = ({ cards }) => {
   const history = useHistory();
   const url = history.location.pathname;
-  let id = Number(url.slice(8, -5));
+  let id = Number(url.slice(7, -5));
   const card = cards[id];
 
   const [name, setName] = useState(card.name);

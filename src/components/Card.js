@@ -1,5 +1,7 @@
 import chip from "../assets/Chip.png";
-import logo from "../assets/Visa.png";
+import Visa from "../assets/Visa.png";
+import Discover from "../assets/Discover.png";
+import MasterCard from "../assets/MasterCard.png";
 import "../styles/card.css";
 import { Link } from "react-router-dom";
 
@@ -10,13 +12,30 @@ const Card = ({
   expiry = "02/22",
   link,
 }) => {
+  const handleColorType = () => {
+    const firstCardNumber = cardNumber.slice(0, 1);
+    switch (firstCardNumber) {
+      case "5":
+        return "card--masterCard";
+      case "6":
+        return "card--discover";
+      default:
+        return "card--visa";
+    }
+  };
   return (
     <div className="card__container">
       {link ? (
         <Link to={`/cards/${id}/edit`}>
-          <div className="card">
+          <div className={`card ${handleColorType()}`}>
             <div className="card__logo">
-              <img className="logo" src={logo} alt="logo" />
+              <img className="logo logo--visa" src={Visa} alt="logo" />
+              <img
+                className="logo logo--masterCard"
+                src={MasterCard}
+                alt="logo"
+              />
+              <img className="logo logo--discover" src={Discover} alt="logo" />
             </div>
             <img className="card__chip" src={chip} alt="chip" />
             <div className="card__number">{cardNumber}</div>
@@ -27,9 +46,15 @@ const Card = ({
           </div>
         </Link>
       ) : (
-        <div className="card">
+        <div className={`card ${handleColorType()}`}>
           <div className="card__logo">
-            <img className="logo" src={logo} alt="logo" />
+            <img className="logo logo--visa" src={Visa} alt="logo" />
+            <img
+              className="logo logo--masterCard"
+              src={MasterCard}
+              alt="logo"
+            />
+            <img className="logo logo--discover" src={Discover} alt="logo" />
           </div>
           <img className="card__chip" src={chip} alt="chip" />
           <div className="card__number">{cardNumber}</div>
