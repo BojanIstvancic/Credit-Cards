@@ -1,8 +1,6 @@
-// Add components
-
 const AddPage = () => {
   return (
-    <div>
+    <div className="addPage">
       <h1>Add Page</h1>
     </div>
   );

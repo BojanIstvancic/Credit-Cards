@@ -1,7 +1,25 @@
-const Card = () => {
+import chip from "../assets/Chip.png";
+import logo from "../assets/Visa.png";
+import "../styles/card.css";
+
+const Card = ({
+  cardNumber = "1456 1298 6574 1287",
+  name = "USER NAME",
+  expiry = "02/22",
+}) => {
   return (
-    <div>
-      <h1>Card</h1>
+    <div className="card__container">
+      <div className="card">
+        <div className="card__logo">
+          <img className="logo" src={logo} alt="logo" />
+        </div>
+        <img className="card__chip" src={chip} alt="chip" />
+        <div className="card__number">{cardNumber}</div>
+        <div className="card__info">
+          <div className="card__infoName">{name}</div>
+          <div className="card__infoExpiry">{expiry}</div>
+        </div>
+      </div>
     </div>
   );
 };

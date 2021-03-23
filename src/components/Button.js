@@ -1,7 +1,12 @@
-const Button = () => {
+import "../styles/button.css";
+import { Link } from "react-router-dom";
+
+const Button = ({ link }) => {
   return (
-    <div>
-      <h1>Button</h1>
+    <div className="addCard__container">
+      <Link to={link}>
+        <div className="addCard">+</div>
+      </Link>
     </div>
   );
 };
