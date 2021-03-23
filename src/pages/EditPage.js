@@ -18,8 +18,7 @@ const EditPage = ({ cards }) => {
   const [cardNumber4, setCardNumber4] = useState(card.cardNumber.slice(15, 19));
   const [expiry, setExpiry] = useState(card.expiry);
 
-  const addCardToLS = (event) => {
-    event.preventDefault();
+  const addCardToLS = () => {
     const currentCards = cards.map((card, index) => {
       if (index === id) {
         card.name = name;
@@ -29,6 +28,7 @@ const EditPage = ({ cards }) => {
       return card;
     });
     localStorage.setItem("cards", JSON.stringify(currentCards));
+    history.push("/cards");
   };
 
   return (
