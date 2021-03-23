@@ -4,7 +4,7 @@ import Button from "../components/Button";
 const HomePage = () => {
   return (
     <div className="homePage">
-      <Card />
+      <Card link />
       <Button link="/cards/add" />
     </div>
   );

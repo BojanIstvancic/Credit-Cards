@@ -4,6 +4,7 @@ import AddPage from "./pages/AddPage";
 import EditPage from "./pages/EditPage";
 
 import { Switch, Route, Redirect } from "react-router-dom";
+import "./styles/app.css";
 
 function App() {
   return (
