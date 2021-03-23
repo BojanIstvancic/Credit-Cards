@@ -3,13 +3,27 @@ import Form from "../components/Form";
 
 import { useState } from "react";
 
-const AddPage = () => {
+const AddPage = ({ getCards }) => {
   const [name, setName] = useState("USER NAME");
   const [cardNumber1, setCardNumber1] = useState(1456);
   const [cardNumber2, setCardNumber2] = useState(1298);
   const [cardNumber3, setCardNumber3] = useState(6574);
   const [cardNumber4, setCardNumber4] = useState(1287);
   const [expiry, setExpiry] = useState("02/22");
+
+  // Add Card to Local Storage
+  const addCardToLS = (event) => {
+    event.preventDefault();
+    console.log("Card");
+    const cards = getCards();
+    const card = {
+      name,
+      cardNumber: `${cardNumber1} ${cardNumber2} ${cardNumber3} ${cardNumber4}`,
+      expiry,
+    };
+    cards.push(card);
+    localStorage.setItem("cards", JSON.stringify(cards));
+  };
 
   return (
     <div className="addPage">
@@ -32,6 +46,7 @@ const AddPage = () => {
         setCardNumber4={setCardNumber4}
         expiry={expiry}
         setExpiry={setExpiry}
+        addCardToLS={addCardToLS}
       />
     </div>
   );

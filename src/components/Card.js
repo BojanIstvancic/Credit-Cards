@@ -4,6 +4,7 @@ import "../styles/card.css";
 import { Link } from "react-router-dom";
 
 const Card = ({
+  id,
   cardNumber = "1456 1298 6574 1287",
   name = "USER NAME",
   expiry = "02/22",
@@ -12,7 +13,7 @@ const Card = ({
   return (
     <div className="card__container">
       {link ? (
-        <Link to="/cards/id/edit">
+        <Link to={`/cards/${id}/edit`}>
           <div className="card">
             <div className="card__logo">
               <img className="logo" src={logo} alt="logo" />

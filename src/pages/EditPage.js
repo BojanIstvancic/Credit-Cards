@@ -5,13 +5,31 @@ import Form from "../components/Form";
 
 import { useState } from "react";
 
-const EditPage = () => {
-  const [name, setName] = useState("USER NAME");
-  const [cardNumber1, setCardNumber1] = useState(1456);
-  const [cardNumber2, setCardNumber2] = useState(1298);
-  const [cardNumber3, setCardNumber3] = useState(6574);
-  const [cardNumber4, setCardNumber4] = useState(1287);
-  const [expiry, setExpiry] = useState("02/22");
+const EditPage = ({ cards }) => {
+  const history = useHistory();
+  const url = history.location.pathname;
+  let id = Number(url.slice(8, -5));
+  const card = cards[id];
+
+  const [name, setName] = useState(card.name);
+  const [cardNumber1, setCardNumber1] = useState(card.cardNumber.slice(0, 4));
+  const [cardNumber2, setCardNumber2] = useState(card.cardNumber.slice(5, 9));
+  const [cardNumber3, setCardNumber3] = useState(card.cardNumber.slice(10, 14));
+  const [cardNumber4, setCardNumber4] = useState(card.cardNumber.slice(15, 19));
+  const [expiry, setExpiry] = useState(card.expiry);
+
+  const addCardToLS = (event) => {
+    event.preventDefault();
+    const currentCards = cards.map((card, index) => {
+      if (index === id) {
+        card.name = name;
+        card.cardNumber = `${cardNumber1} ${cardNumber2} ${cardNumber3} ${cardNumber4}`;
+        card.expiry = expiry;
+      }
+      return card;
+    });
+    localStorage.setItem("cards", JSON.stringify(currentCards));
+  };
 
   return (
     <div className="addPage">
@@ -34,6 +52,7 @@ const EditPage = () => {
         setCardNumber4={setCardNumber4}
         expiry={expiry}
         setExpiry={setExpiry}
+        addCardToLS={addCardToLS}
       />
     </div>
   );

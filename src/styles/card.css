@@ -39,3 +39,9 @@
   flex-direction: column;
   align-items: flex-end;
 }
+
+/*
+ discover: linear-gradient(25deg, #fff, #eee)
+ master: linear-gradient(25deg, #e8e9e5, #fbfbfb)
+ visa: linear-gradient(25deg, #0f509e, #1399cd);
+*/
