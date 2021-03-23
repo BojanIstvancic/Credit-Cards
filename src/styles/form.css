@@ -1,6 +1,7 @@
 .form {
   width: 400px;
 }
+
 input {
   position: relative;
   width: 100%;
@@ -8,18 +9,7 @@ input {
   padding: 10px;
   border: 1px solid #efefef;
 }
-input.name:after {
-  content: "Wrong name";
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 10px;
-  color: red;
-}
-input.name--false:after {
-  display: block;
-}
+
 p {
   margin-bottom: 15px;
   font-size: 15px;
@@ -27,13 +17,16 @@ p {
 .form__section {
   display: flex;
 }
+
 .form__section input {
   width: 22%;
   margin-right: 4%;
 }
+
 .form__section input:last-child {
   margin-right: 0;
 }
+
 .form__submit {
   color: white;
   background-color: #4a7eb6;
